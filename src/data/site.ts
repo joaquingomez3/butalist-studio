@@ -32,7 +32,7 @@ export const nav: NavItem[] = [
   { label: "TRABAJO", href: "#work" },
   { label: "SERVICIOS", href: "#servicios" },
   { label: "GARANTÍAS", href: "#garantias" },
-  { label: "STACK", href: "#stack" },
+  { label: "STACKS", href: "#stack" },
   { label: "EQUIPO", href: "#equipo" },
   { label: "FAQ", href: "#faq" },
 ];
