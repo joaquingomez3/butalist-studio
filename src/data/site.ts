@@ -29,7 +29,7 @@ export type NavItem = { label: string; href: string };
 
 export const nav: NavItem[] = [
   { label: "INICIO", href: "#manifesto" },
-  { label: "TRABAJO", href: "#work" },
+  { label: "TRABAJOS", href: "#work" },
   { label: "SERVICIOS", href: "#servicios" },
   { label: "GARANTÍAS", href: "#garantias" },
   { label: "STACKS", href: "#stack" },
