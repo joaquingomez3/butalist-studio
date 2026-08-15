@@ -1,0 +1,68 @@
+---
+import { site } from "../data/site";
+
+const notes = [
+  [site.foundedYear, "est.", "fundación"],
+  ["02", "devs", "sin capas"],
+  ["UNIV", "formación", "grado +"],
+  ["REMOTO", "scope", "clientes globales"],
+  ["POCOS", "proyectos", "a la vez"],
+];
+---
+
+<section id="manifesto" class="py-16 sm:py-24 md:py-36">
+  <div class="container-fx">
+    <div class="mb-14 flex items-baseline justify-between" data-reveal>
+      <span class="label-accent">§01 / MANIFIESTO</span>
+      <span class="label hidden sm:inline">00.001 — INDEX</span>
+    </div>
+
+    <div class="grid grid-cols-1 gap-x-8 gap-y-12 lg:grid-cols-12">
+      <div class="lg:col-span-8">
+        <p class="h-display text-3xl uppercase leading-[0.95] sm:text-4xl md:text-5xl" data-line-mask>
+          <span class="line-mask"><span class="line-i">Somos un estudio chico.</span></span>
+          <span class="line-mask"><span class="line-i"><span class="text-accent">Y eso es una ventaja.</span></span></span>
+        </p>
+
+        <div class="mt-12 max-w-2xl space-y-6 text-lg leading-relaxed text-ink-soft">
+          <p data-reveal>
+            <span class="mono text-ink-faint">&para; </span>
+            {site.name} nació como la idea de dos desarrolladores que querían hacer las
+            cosas bien. Nos llamamos Federico González y Joaquín Gómez, somos profesionales
+            con formación universitaria y somos los que escribimos el código de cada proyecto.
+            No hay nada delegado.
+          </p>
+          <p data-reveal>
+            No somos una fábrica. Tomamos pocos proyectos a la vez para que cada uno reciba la
+            atención que merece. Sin capas de management ni intermediarios: hablás directo con
+            la persona que está construyendo tu producto.
+          </p>
+          <p data-reveal>
+            Hacemos software a medida para clientes de todo el mundo y también construimos
+            SaaS propios. Nos interesa el código prolijo, los sistemas simples y las relaciones
+            a largo plazo. Si algo no te conviene, te lo decimos antes de empezar.
+          </p>
+        </div>
+      </div>
+
+      <aside class="lg:col-span-3 lg:col-start-10">
+        <div class="b-rule pb-3">
+          <span class="label">FICHA DEL ESTUDIO</span>
+        </div>
+        <ul class="t-rule" role="list">
+          {notes.map(([value, label, hint]) => (
+            <li class="b-rule flex items-baseline justify-between gap-3 py-3" data-reveal>
+              <div>
+                <span class="mono text-sm font-semibold">{value}</span>
+                <span class="mono ml-2 text-[10px] uppercase tracking-widest text-ink-faint">
+                  [{label}]
+                </span>
+              </div>
+              <span class="mono text-[11px] text-ink-faint">{hint}</span>
+            </li>
+          ))}
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>

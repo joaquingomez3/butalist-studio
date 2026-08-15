@@ -1,0 +1,40 @@
+---
+import { services } from "../data/services";
+import SectionHeader from "./SectionHeader.astro";
+---
+
+<section id="servicios" class="border-t border-rule py-16 sm:py-24 md:py-36">
+  <SectionHeader
+    num="§04"
+    label="SERVICIOS"
+    title="Qué hacemos"
+    desc="Cubrimos el proceso completo, de la idea al deploy. Si no está en la lista, preguntanos: probablemente también lo hacemos."
+    monoTag="04 / INDEX"
+  />
+
+  <div class="container-fx mt-10">
+    <ul class="t-rule" role="list">
+      {
+        services.map((s, i) => (
+          <li class="b-rule" data-reveal>
+            <a
+              href="#contacto"
+              class="group grid items-baseline gap-2 py-8 transition-colors hover:bg-bg-raised md:grid-cols-12 md:gap-6 md:py-10"
+            >
+              <span class="font-mono text-[12px] text-accent md:col-span-1">0{i + 1}</span>
+              <h3 class="font-display text-2xl font-bold uppercase transition-transform duration-200 group-hover:translate-x-2 md:col-span-5 md:text-4xl">
+                {s.title}
+              </h3>
+              <p class="max-w-xl text-sm leading-relaxed text-ink-soft md:col-span-5 md:text-base">
+                {s.description}
+              </p>
+              <span class="hidden justify-end font-mono text-lg text-accent md:col-span-1 md:flex">
+                →
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,77 @@
+---
+import { nav, site } from "../data/site";
+import { services } from "../data/services";
+
+const year = new Date().getFullYear();
+
+const systemInfo = [
+  site.system.build,
+  `engine: ${site.system.engine}`,
+  site.system.host,
+  site.system.astro,
+];
+---
+
+<footer class="border-t border-rule bg-bg-raised">
+  <div class="container-fx py-16 md:py-20">
+    <div class="grid gap-12 md:grid-cols-4">
+      <div>
+        <a href="#top" class="font-display text-base font-bold tracking-tight">
+          {site.shortName}
+          <span class="text-accent">.dev</span>
+          <span class="text-ink-faint"> labs</span>
+        </a>
+        <p class="mt-4 max-w-xs text-sm leading-relaxed text-ink-faint">
+          Estudio independiente de desarrollo de software. Software a medida y
+          SaaS. Dos desarrolladores, código serio.
+        </p>
+      </div>
+
+      <nav aria-label="Índice">
+        <h3 class="label mb-4">INDEX</h3>
+        <ul class="flex flex-col gap-2.5" role="list">
+          {nav.map((item) => (
+            <li>
+              <a href={item.href} class="inline-block py-1 font-mono text-sm text-ink-soft transition-colors hover:text-accent">
+                {item.label.toLowerCase()}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <div>
+        <h3 class="label mb-4">SERVICIOS</h3>
+        <ul class="flex flex-col gap-2.5" role="list">
+          {services.map((s) => (
+            <li>
+              <a href="#servicios" class="inline-block py-1 font-mono text-sm text-ink-soft transition-colors hover:text-accent">
+                {s.title.toLowerCase()}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="label mb-4">SISTEMA</h3>
+        <ul class="flex flex-col gap-2.5 font-mono text-sm text-ink-faint" role="list">
+          {systemInfo.map((item) => (
+            <li>{item}</li>
+          ))}
+          <li class="pt-2">
+            <span class="inline-flex items-center gap-2 text-accent">
+              <span class="h-2 w-2 animate-pulse bg-accent"></span>
+              online
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-16 flex flex-col gap-3 border-t border-rule pt-6 font-mono text-[11px] uppercase tracking-widest text-ink-faint md:flex-row md:items-center md:justify-between">
+      <p>&copy; {year} {site.name}. Derechos reservados.</p>
+      <p>Hecho a mano con astro + gsap · sin plantillas</p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,29 @@
+---
+interface Props {
+  num: string;
+  label: string;
+  title: string;
+  desc?: string;
+  monoTag?: string;
+}
+const { num, label, title, desc, monoTag = "BINARIO DEV LABS" } = Astro.props;
+---
+
+<div class="container-fx">
+  <div class="t-rule pb-4 pt-6" data-reveal>
+    <div class="flex items-baseline justify-between gap-4">
+      <span class="label-accent">{num} / {label}</span>
+      <span class="label hidden sm:inline">{monoTag}</span>
+    </div>
+  </div>
+  <div class="pb-4 pt-2">
+    <h2 class="h-display text-[clamp(2.1rem,7.5vw,6.5rem)]" data-line-mask>
+      <span class="line-mask"><span class="line-i">{title}</span></span>
+    </h2>
+  </div>
+  {desc && (
+    <p class="max-w-2xl text-base leading-relaxed text-ink-soft md:text-lg" data-reveal>
+      {desc}
+    </p>
+  )}
+</div>

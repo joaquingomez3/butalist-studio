@@ -1,0 +1,52 @@
+---
+import { site } from "../data/site";
+
+const socials = [
+  { key: "linkedin", label: "LINKEDIN", href: site.social.linkedin },
+  { key: "github", label: "GITHUB", href: site.social.github },
+  { key: "twitter", label: "X·TWITTER", href: site.social.twitter },
+  { key: "instagram", label: "INSTAGRAM", href: site.social.instagram },
+];
+---
+
+<section id="contacto" class="border-t border-rule py-16 sm:py-24 md:py-36">
+  <div class="container-fx text-center">
+    <div class="flex items-center justify-between" data-reveal>
+      <span class="label-accent">§10 / CONTACTO</span>
+      <span class="label hidden sm:inline">RESPONDEMOS EN 24H</span>
+    </div>
+
+    <h2 class="h-display mt-12 text-[clamp(2.5rem,14vw,12rem)] uppercase" data-line-mask>
+      <span class="line-mask"><span class="line-i">Hablemos<span class="text-accent">.</span></span></span>
+    </h2>
+
+    <p class="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-ink-soft" data-reveal>
+      Contanos qué necesitás. Sin tecnicismos, sin compromiso inicial. Si lo
+      vemos viable, te lo decimos; y si no, también.
+    </p>
+
+    <div class="mt-12 flex flex-wrap items-center justify-center gap-4" data-reveal>
+      <a href={`mailto:${site.email}`} class="btn-force">Escribinos</a>
+      <a href={`mailto:${site.email}`} class="link-force font-display text-2xl font-bold sm:text-3xl" data-magnetic>
+        {site.email}
+      </a>
+    </div>
+  </div>
+
+  <div class="container-fx mt-20">
+    <div class="t-rule grid border-x border-rule sm:grid-cols-2 lg:grid-cols-4" data-reveal>
+      {socials.map((s) => (
+        <a
+          href={s.href}
+          class="group flex items-center justify-between gap-3 border-b border-rule px-5 py-6 transition-colors hover:bg-accent hover:text-accent-ink sm:last:border-r-0 lg:border-r lg:last:border-r-0"
+        >
+          <span class="flex items-center gap-3">
+            <span class="font-mono text-[11px] text-ink-faint transition-colors group-hover:text-accent-ink/70">/{s.key}</span>
+            <span class="font-mono text-sm font-semibold uppercase tracking-widest">{s.label}</span>
+          </span>
+          <span class="font-mono">↗</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

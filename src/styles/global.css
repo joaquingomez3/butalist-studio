@@ -1,0 +1,235 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
+
+  --color-bg: #0a0a0a;
+  --color-bg-soft: #121212;
+  --color-bg-raised: #1a1a1a;
+  --color-rule: #22221f;
+  --color-rule-strong: #3a3a36;
+
+  --color-ink: #f2f2ed;
+  --color-ink-soft: #b3b3ab;
+  --color-ink-faint: #6b6b66;
+
+  --color-accent: #3b82f6;
+  --color-accent-bright: #60a5fa;
+  --color-accent-deep: #1d4ed8;
+  --color-accent-ink: #060f1f;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Red de seguridad: nada debe desbordar a lo ancho en mobile. */
+    overflow-x: clip;
+    scroll-padding-top: 5.5rem;
+    background-color: var(--color-bg);
+  }
+
+  body {
+    @apply bg-bg font-sans text-ink antialiased;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+    font-weight: 700;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-bg);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-rule-strong);
+    border: 3px solid var(--color-bg);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent);
+  }
+}
+
+@layer components {
+  .container-fx {
+    @apply mx-auto w-full max-w-[1400px] px-5 sm:px-8 lg:px-12;
+  }
+
+  .mono {
+    @apply font-mono;
+  }
+
+  .label {
+    @apply font-mono text-[11px] font-medium uppercase tracking-[0.2em];
+    color: var(--color-ink-faint);
+  }
+
+  .label-accent {
+    @apply font-mono text-[11px] font-medium uppercase tracking-[0.2em];
+    color: var(--color-accent);
+  }
+
+  .h-display {
+    @apply font-display font-bold tracking-[-0.03em];
+    line-height: 0.92;
+  }
+
+  .hairline-y {
+    border-top: 1px solid var(--color-rule);
+    border-bottom: 1px solid var(--color-rule);
+  }
+
+  .t-rule {
+    border-top: 1px solid var(--color-rule);
+  }
+
+  .b-rule {
+    border-bottom: 1px solid var(--color-rule);
+  }
+
+  .l-rule {
+    border-left: 1px solid var(--color-rule);
+  }
+
+  .r-rule {
+    border-right: 1px solid var(--color-rule);
+  }
+
+  .text-outline {
+    -webkit-text-stroke: 1.5px var(--color-ink);
+    color: transparent;
+  }
+
+  .text-outline-accent {
+    -webkit-text-stroke: 1.5px var(--color-accent);
+    color: transparent;
+  }
+
+  .btn-force {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 font-mono text-[12px] font-semibold uppercase tracking-[0.16em];
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+    border: 1px solid var(--color-accent);
+    box-shadow: 4px 4px 0 var(--color-ink);
+    transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+  }
+  .btn-force:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 var(--color-ink);
+    background: var(--color-accent-bright);
+  }
+
+  .btn-ghost-brutal {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 font-mono text-[12px] font-semibold uppercase tracking-[0.16em];
+    color: var(--color-ink);
+    border: 1px solid var(--color-rule-strong);
+    box-shadow: 4px 4px 0 var(--color-rule-strong);
+    transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+  }
+  .btn-ghost-brutal:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 var(--color-rule-strong);
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  .link-block {
+    display: inline-block;
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: var(--color-rule-strong);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    transition: text-decoration-color 0.15s ease, color 0.15s ease;
+  }
+  .link-block:hover {
+    color: var(--color-accent);
+    text-decoration-color: var(--color-accent);
+  }
+
+  .link-force {
+    display: inline-block;
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: var(--color-accent);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 6px;
+    transition: color 0.15s ease;
+  }
+  .link-force:hover {
+    color: var(--color-accent);
+  }
+}
+
+/* Marquee */
+@keyframes marquee-x {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-x var(--marquee-speed, 30s) linear infinite;
+  will-change: transform;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Sin cursor personalizado ni marquesina animada en táctil / reduced-motion */
+@media (pointer: coarse) {
+  .cursor-orb {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* Line mask reveal (hidden only when JS/GSAP is ready) */
+.line-mask {
+  display: block;
+  overflow: hidden;
+  padding: 0.06em 0;
+  margin: -0.06em 0 0;
+}
+.line-i {
+  display: block;
+  will-change: transform;
+}
+/* Pre-hide antes del reveal de GSAP.
+   SOLO visibility, nunca transform: GSAP es dueño exclusivo del canal
+   transform (yPercent). Si el CSS ocultara con translateY(%), GSAP lo
+   parsearía a píxeles en su canal `y` y el texto quedaría oculto para
+   siempre aunque la animación termine en yPercent: 0. */
+.gs-ready .line-i {
+  visibility: hidden;
+}
+.gs-ready [data-reveal] {
+  visibility: hidden;
+}

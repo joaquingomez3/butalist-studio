@@ -1,0 +1,21 @@
+<div class="cursor-orb" data-cursor aria-hidden="true"></div>
+
+<style>
+  .cursor-orb {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 14px;
+    height: 14px;
+    margin: -7px 0 0 -7px;
+    border-radius: 9999px;
+    background: var(--color-accent);
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0;
+    mix-blend-mode: normal;
+  }
+  :global(.cursor-on) .cursor-orb {
+    opacity: 1;
+  }
+</style>

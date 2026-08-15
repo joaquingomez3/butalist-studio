@@ -1,0 +1,59 @@
+---
+import { site } from "../data/site";
+import "../styles/global.css";
+import "@fontsource-variable/space-grotesk";
+import "@fontsource-variable/inter";
+import "@fontsource-variable/jetbrains-mono";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const title = Astro.props.title ?? `${site.name} — Estudio de desarrollo de software`;
+const description = Astro.props.description ?? site.description;
+const canonical = new URL(Astro.url.pathname, site.url).toString();
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline>
+      // Pre-esconde el contenido animado ANTES del primer paint (sin FOUC).
+      // Se ejecuta síncronamente durante el parseo, a diferencia del módulo
+      // de GSAP que es diferido. Failsafe: si el módulo no marcó gsBuild en
+      // 2.5s (falló la carga, red, error), se remueve la clase y todo queda
+      // visible.
+      document.documentElement.classList.add("gs-ready");
+      setTimeout(function () {
+        if (!document.documentElement.dataset.gsBuild) {
+          document.documentElement.classList.remove("gs-ready");
+        }
+      }, 2500);
+    </script>
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={site.name} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <meta name="theme-color" content="#0a0a0a" />
+  </head>
+  <body class="bg-bg text-ink">
+    <slot />
+  </body>
+</html>
+
+<script>
+  import "../lib/gsap.client";
+</script>

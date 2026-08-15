@@ -1,0 +1,34 @@
+---
+import { faq } from "../data/faq";
+import SectionHeader from "./SectionHeader.astro";
+---
+
+<section id="faq" class="border-t border-rule py-16 sm:py-24 md:py-36">
+  <SectionHeader
+    num="§09"
+    label="FAQ"
+    title="Antes de escribirnos"
+    desc="Las preguntas que más nos hacen. Si no está la tuya, escribinos sin compromiso."
+    monoTag="09 / INDEX"
+  />
+
+  <div class="container-fx mt-10">
+    <ul class="t-rule" role="list">
+      {
+        faq.map((q, i) => (
+          <li class="grid gap-3 py-8 md:grid-cols-12 md:gap-6 md:py-10" data-reveal>
+            <span class="font-mono text-[11px] text-ink-faint md:col-span-1">
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <h3 class="font-display text-xl font-bold leading-snug sm:text-2xl md:col-span-6">
+              {q.question}
+            </h3>
+            <p class="text-sm leading-relaxed text-ink-soft md:col-span-5 md:text-base">
+              {q.answer}
+            </p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,43 @@
+---
+import { stack } from "../data/stack";
+import SectionHeader from "./SectionHeader.astro";
+---
+
+<section id="stack" class="border-t border-rule py-16 sm:py-24 md:py-36">
+  <SectionHeader
+    num="§07"
+    label="STACK"
+    title="Con qué construimos"
+    desc="No nos casamos con una herramienta. Elegimos la que encaja en cada proyecto. Estas son las de uso diario."
+    monoTag="07 / INDEX"
+  />
+
+  <div class="container-fx mt-10">
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
+      {
+        stack.map((g, i) => (
+          <div class={`${i % 2 === 1 ? "bg-bg-raised/60" : ""} border border-rule p-4 sm:p-5 md:p-6`} data-reveal>
+            <span class="label block pb-3 text-accent">{g.cat}</span>
+            <ul class="t-rule pt-4" role="list">
+              {g.items.map((it) => (
+                <li>
+                  <a
+                    href="#contacto"
+                    class="group flex items-center justify-between py-2.5 sm:py-1.5"
+                  >
+                    <span class="font-mono text-sm text-ink-soft transition-colors group-hover:text-accent">
+                      {it}
+                    </span>
+                    <span class="font-mono text-[10px] text-ink-faint transition-colors group-hover:text-accent">
+                      ©
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,47 @@
+---
+import { testimonials } from "../data/testimonials";
+---
+
+<section id="clientes" class="relative overflow-hidden border-y border-rule bg-accent text-accent-ink">
+  <div class="pointer-events-none absolute inset-0 opacity-10" style="background-image:
+    linear-gradient(to right, var(--color-accent-ink) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-accent-ink) 1px, transparent 1px);
+    background-size: 64px 64px;" aria-hidden="true"></div>
+
+  <div class="container-fx relative py-16 sm:py-24 md:py-32">
+    <div class="flex items-baseline justify-between">
+      <span class="font-mono text-[11px] font-semibold uppercase tracking-[0.2em]">§08 / CLIENTES</span>
+      <span class="font-mono text-[10px] uppercase tracking-[0.2em] opacity-70">NO SOMOS UNA FÁBRICA</span>
+    </div>
+
+    <div class="relative mt-12">
+      {
+        testimonials.map((t, i) => (
+          <figure
+            class={`absolute inset-0 flex flex-col justify-center ${i === 0 ? "" : "invisible opacity-0"}`}
+            data-testimonial={i}
+            style={i === 0 ? "position: relative" : ""}
+          >
+            <blockquote class="max-w-4xl font-display text-3xl font-bold leading-[1.05] sm:text-4xl md:text-5xl">
+              "{t.quote}"
+            </blockquote>
+            <figcaption class="mt-7 font-mono text-sm">
+              {t.author}<span class="opacity-60"> — {t.role}</span>
+            </figcaption>
+          </figure>
+        ))
+      }
+    </div>
+
+    <div class="mt-12 flex items-center gap-2">
+      {testimonials.map((_, i) => (
+        <button
+          type="button"
+          class={`relative h-2.5 w-2.5 after:absolute after:-inset-3 after:content-[''] ${i === 0 ? "bg-accent-ink" : "bg-accent-ink/30"}`}
+          data-testimonial-dot={i}
+          aria-label={`Mostrar testimonio ${i + 1}`}
+        ></button>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,50 @@
+---
+import { team } from "../data/team";
+import SectionHeader from "./SectionHeader.astro";
+import Icon from "./Icon.astro";
+
+const socialIcon = { github: "github", linkedin: "linkedin", twitter: "twitter" } as const;
+---
+
+<section id="equipo" class="border-t border-rule py-16 sm:py-24 md:py-36">
+  <SectionHeader
+    num="§06"
+    label="EQUIPO"
+    title="Dos personas, el número justo"
+    desc="Sin capas de management ni account managers. Hablás directamente con quien escribe el código."
+    monoTag="06 / INDEX"
+  />
+
+  <div class="container-fx mt-14 grid gap-6 md:grid-cols-2">
+    {
+      team.map((m) => (
+        <article class="border border-rule bg-bg-raised transition-[border-color,box-shadow] hover:border-accent hover:shadow-[6px_6px_0_0_var(--color-accent)]" data-reveal>
+          <div class="relative flex items-center justify-center overflow-hidden border-b border-rule py-10">
+            <span class="font-display text-[7rem] font-bold leading-none text-outline transition-opacity duration-200 sm:text-[9rem]">
+              {m.initials}
+            </span>
+            <span class="absolute left-3 top-3 font-mono text-[10px] uppercase tracking-widest text-ink-faint">
+              {m.code}
+            </span>
+          </div>
+          <div class="p-6 md:p-8">
+            <h3 class="font-display text-2xl font-bold">{m.name}</h3>
+            <p class="mt-1 font-mono text-[11px] uppercase tracking-[0.15em] text-accent">{m.role}</p>
+            <p class="mt-4 leading-relaxed text-ink-soft">{m.bio}</p>
+            <div class="mt-6 flex gap-3">
+              {Object.entries(m.social).map(([key, href]) => (
+                <a
+                  href={href}
+                  class="flex h-9 w-9 items-center justify-center border border-rule-strong text-ink-soft transition hover:border-accent hover:text-accent"
+                  aria-label={`${m.name} en ${key}`}
+                >
+                  <Icon name={socialIcon[key as keyof typeof socialIcon]} class="h-4 w-4" />
+                </a>
+              ))}
+            </div>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>

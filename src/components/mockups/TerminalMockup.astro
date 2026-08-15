@@ -1,0 +1,36 @@
+---
+interface Props {
+  class?: string;
+  title?: string;
+}
+const { class: className = "w-full", title = "~/dev/binario" } = Astro.props;
+const lines = [
+  ["$", "npm run dev", ""],
+  ["", "> binario dev labs", "text-accent"],
+  ["", "> server ready on :4321", "text-ink-soft"],
+  ["", "> building /index (static)", "text-ink-faint"],
+  ["$", "git push --force-with-lease", ""],
+  ["", "> 1 file changed", "text-ink-soft"],
+  ["$", "deploy --preview", ""],
+  ["", "> ✓ published to prod", "text-accent"],
+];
+---
+
+<div class={`border border-rule bg-bg-raised ${className}`}>
+  <div class="flex items-center justify-between border-b border-rule px-3 py-2">
+    <div class="flex items-center gap-1.5">
+      <span class="h-2.5 w-2.5 rounded-full bg-ink-faint/50"></span>
+      <span class="h-2.5 w-2.5 rounded-full bg-ink-faint/30"></span>
+      <span class="h-2.5 w-2.5 rounded-full bg-accent/60"></span>
+    </div>
+    <span class="font-mono text-[10px] tracking-wide text-ink-faint">{title}</span>
+  </div>
+  <div class="overflow-hidden p-4 font-mono text-[11px] leading-relaxed sm:text-xs">
+    {lines.map(([prefix, text, cls]) => (
+      <div class={cls}>
+        <span class="text-accent">{prefix ? prefix + " " : ""}</span>
+        {text}
+      </div>
+    ))}
+  </div>
+</div>

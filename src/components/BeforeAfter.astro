@@ -1,0 +1,55 @@
+---
+import SectionHeader from "./SectionHeader.astro";
+import { beforeAfter } from "../data/trust";
+---
+
+<section id="antes-despues" class="border-t border-rule py-16 sm:py-24 md:py-36">
+  <SectionHeader
+    num="§03"
+    label="ANTES / DESPUÉS"
+    title="Qué cambia con nosotros"
+    desc="No es una promesa de tecnología, es una diferencia de método. Esto es lo que cambia, punto por punto, cuando el proyecto lo llevamos nosotros."
+    monoTag="03 / INDEX"
+  />
+
+  <div class="container-fx mt-14">
+    <div
+      class="b-rule hidden gap-x-6 pb-3 md:grid md:grid-cols-[2.5rem_1fr_2.5rem_1fr] md:items-baseline"
+      data-reveal
+    >
+      <span class="label">[nº]</span>
+      <span class="label">CÓMO SUELE PASAR</span>
+      <span></span>
+      <span class="label-accent">CÓMO TRABAJAMOS</span>
+    </div>
+
+    <ul role="list">
+      {
+        beforeAfter.map((pair, i) => (
+          <li
+            class="b-rule grid gap-3 py-6 md:grid-cols-[2.5rem_1fr_2.5rem_1fr] md:items-baseline md:gap-x-6 md:py-7"
+            data-reveal
+          >
+            <span class="mono text-[11px] text-ink-faint">
+              {String(i + 1).padStart(2, "0")}
+            </span>
+
+            <p class="flex gap-3 text-base leading-relaxed text-ink-faint">
+              <span class="mono shrink-0 text-[11px] md:hidden">[✕]</span>
+              <span>{pair.before}</span>
+            </p>
+
+            <span class="mono hidden text-lg text-accent md:block md:text-center" aria-hidden="true">
+              →
+            </span>
+
+            <p class="flex gap-3 text-base leading-relaxed text-ink">
+              <span class="mono shrink-0 text-[11px] text-accent md:hidden">[✓]</span>
+              <span>{pair.after}</span>
+            </p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

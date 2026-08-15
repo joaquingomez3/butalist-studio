@@ -1,0 +1,32 @@
+---
+interface Props {
+  class?: string;
+}
+const { class: className = "w-full" } = Astro.props;
+const lines = [
+  ["1", "import { App } from \"./core\";"],
+  ["2", "import { auth } from \"./auth\";"],
+  ["3", ""],
+  ["4", "export function handler(req: Req) {", "text-accent"],
+  ["5", "  const user = auth.verify(req);", "text-ink-soft"],
+  ["6", "  if (!user) return 401;", "text-ink-soft"],
+  ["7", ""],
+  ["8", "  return App.handle(req, user);", "text-ink"],
+  ["9", "}", "text-accent"],
+];
+---
+
+<div class={`border border-rule bg-bg-raised ${className}`}>
+  <div class="flex items-center justify-between border-b border-rule px-3 py-2">
+    <span class="font-mono text-[10px] uppercase tracking-widest text-ink-faint">server.ts</span>
+    <span class="font-mono text-[10px] text-accent">ts</span>
+  </div>
+  <div class="overflow-x-auto p-4 font-mono text-[11px] leading-relaxed sm:text-xs">
+    {lines.map(([n, code, cls]) => (
+      <div class="flex gap-4 whitespace-pre">
+        <span class="w-4 shrink-0 select-none text-right text-ink-faint/50">{n}</span>
+        <span class={cls}>{code}</span>
+      </div>
+    ))}
+  </div>
+</div>

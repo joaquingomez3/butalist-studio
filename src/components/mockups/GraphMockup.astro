@@ -1,0 +1,51 @@
+---
+interface Props {
+  class?: string;
+}
+const { class: className = "w-full" } = Astro.props;
+---
+
+<div class={`border border-rule bg-bg-raised p-4 ${className}`}>
+  <div class="flex items-center justify-between">
+    <span class="font-mono text-[10px] uppercase tracking-widest text-ink-faint">
+      TRÁFICO / 24H
+    </span>
+    <span class="font-mono text-[10px] text-accent">▲ +18.4%</span>
+  </div>
+  <svg viewBox="0 0 400 160" class="mt-4 w-full" role="img" aria-label="Gráfico abstracto de métricas">
+    <!-- grid -->
+    <g stroke="var(--color-rule)" stroke-width="1">
+      <line x1="0" y1="40" x2="400" y2="40" />
+      <line x1="0" y1="80" x2="400" y2="80" />
+      <line x1="0" y1="120" x2="400" y2="120" />
+    </g>
+    <!-- area -->
+    <path
+      d="M0 130 C 30 125, 45 100, 70 105 S 110 70, 140 78 S 180 40, 210 50 S 260 30, 290 42 S 350 16, 400 28 L 400 160 L 0 160 Z"
+      fill="var(--color-accent)"
+      opacity="0.12"
+      data-draw="0"
+    />
+    <!-- line -->
+    <path
+      d="M0 130 C 30 125, 45 100, 70 105 S 110 70, 140 78 S 180 40, 210 50 S 260 30, 290 42 S 350 16, 400 28"
+      fill="none"
+      stroke="var(--color-accent)"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      data-draw
+    />
+    <!-- points -->
+    <g fill="var(--color-accent)">
+      <circle cx="70" cy="105" r="3" />
+      <circle cx="180" cy="40" r="3" />
+      <circle cx="290" cy="42" r="3" />
+      <circle cx="400" cy="28" r="3" />
+    </g>
+  </svg>
+  <div class="mt-3 flex gap-6 font-mono text-[10px] text-ink-faint">
+    <span>MIN 1.2K</span>
+    <span>MAX 32K</span>
+    <span>NOW 28K</span>
+  </div>
+</div>
