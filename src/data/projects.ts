@@ -45,7 +45,7 @@ export const projects: Project[] = [
     title: "Proyecto TresMa",
     tag: "Sistema De Ventas",
     type: "A MEDIDA",
-    status: "TERMINADO",
+    status: "ENTREGADO",
     description:
       "Sistema Web de gestion de ventas, productos y stock a medida para una empresa de ventas de articulos de limpieza.",
     mockup: "graph",
@@ -57,7 +57,7 @@ export const projects: Project[] = [
     title: "Proyecto POS 2.0",
     tag: "Sistema De Ventas",
     type: "A MEDIDA",
-    status: "ENTREGADO",
+    status: "TERMINADO",
     description:
       "Sistema Offline de gestión de ventas, productos y stock a medida.",
     mockup: "graph",
