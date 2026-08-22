@@ -9,6 +9,9 @@ interface Props {
 const { num, label, title, desc, monoTag = "BINARIO DEV LABS" } = Astro.props;
 ---
 
+<!-- Ojo: este t-rule ES el divisor de la seccion. Las secciones que usan
+     SectionHeader NO deben llevar ademas `border-t` propio: quedaban dos
+     lineas separadas por todo el padding, y la de arriba flotaba sola. -->
 <div class="container-fx">
   <div class="t-rule pb-4 pt-6" data-reveal>
     <div class="flex items-baseline justify-between gap-4">
