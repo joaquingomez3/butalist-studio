@@ -1,7 +1,7 @@
 /* ==========================================================================
    SEÑALES DE CONFIANZA
-   Alimenta tres secciones: Sectors (franja bajo el hero), BeforeAfter (§03)
-   y Guarantees (§06). Editar acá; los componentes se actualizan solos.
+   Alimenta dos secciones vivas: Sectors (franja bajo el hero) y
+   Guarantees (§03). Editar acá; los componentes se actualizan solos.
    ========================================================================== */
 
 /* --- Franja "Ya construimos" -------------------------------------------- */
@@ -16,7 +16,10 @@ export const sectors: string[] = [
   "Automatización de procesos",
 ];
 
-/* --- Antes / después -----------------------------------------------------
+/* --- Antes / después [ARCHIVADO] -----------------------------------------
+   Estos datos alimentaban la sección "Qué cambia con nosotros", que hoy vive
+   en _sin-uso/BeforeAfter.astro. Se dejan acá para que restaurar la sección
+   sea solo mover el .astro de vuelta a src/components/.
    Cada par se lee en una línea: izquierda el status quo, derecha cómo
    trabajamos. Conviene que uno responda al otro, punto por punto.
    ------------------------------------------------------------------------ */

@@ -1,90 +1,62 @@
 ---
-import { nav, site } from "../data/site";
-
-const tickerItems = [
-  `${site.shortName} DEV LABS`,
-  `EST. ${site.foundedYear}`,
-  "2 DEVELOPERS",
-  site.location,
-  site.status,
-  site.domain,
-];
+import { asset, nav, site } from "../data/site";
 ---
 
-<div class="relative z-50">
-  <div class="overflow-hidden whitespace-nowrap border-b border-rule bg-bg-raised py-1.5">
-    <div class="marquee-track" style="--marquee-speed: 22s" aria-hidden="true">
-      {[0, 1].map(() => (
-        <div class="flex shrink-0 items-center">
-          {tickerItems.map((item) => (
-            <>
-              <span class="mono px-3 text-[10px] uppercase tracking-[0.2em] text-ink-faint">
-                {item}
-              </span>
-              <span class="text-accent">✦</span>
-            </>
-          ))}
-        </div>
-      ))}
-    </div>
-  </div>
+<header class="sticky top-0 z-50 border-b border-rule bg-bg/90 backdrop-blur-md">
+  <nav class="container-fx flex h-14 items-center justify-between gap-4" aria-label="Principal">
+    <a href="#top" class="flex items-center gap-2.5 font-display text-base font-bold tracking-tight">
+      <img src={asset("logo-mark.svg")} alt="" width="28" height="28" class="h-7 w-7 shrink-0" />
+      {site.shortName}
+      <span class="text-accent">.dev</span>
+      <span class="text-ink-faint"> labs</span>
+    </a>
 
-  <header class="sticky top-0 border-b border-rule bg-bg/90 backdrop-blur-md">
-    <nav class="container-fx flex h-14 items-center justify-between gap-4" aria-label="Principal">
-      <a href="#top" class="flex items-center gap-2.5 font-display text-base font-bold tracking-tight">
-        <img src="/logo-mark.svg" alt="" width="28" height="28" class="h-7 w-7 shrink-0" />
-        {site.shortName}
-        <span class="text-accent">.dev</span>
-        <span class="text-ink-faint"> labs</span>
-      </a>
-
-      <ul class="hidden items-center gap-6 lg:flex" role="list">
-        {nav.map((item) => (
-          <li>
-            <a
-              href={item.href}
-              class="mono text-[11px] font-medium uppercase tracking-[0.18em] text-ink-soft transition hover:text-accent"
-            >
-              {item.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-
-      <div class="flex items-center gap-3">
-        <a href="#contacto" class="btn-force hidden px-4 py-2 sm:inline-flex">
-          Hablemos
-        </a>
-        <details class="lg:hidden" data-menu>
-          <summary
-            class="flex h-9 w-9 cursor-pointer list-none items-center justify-center border border-rule-strong text-ink [&::-webkit-details-marker]:hidden"
-            aria-label="Abrir menú"
+    <ul class="hidden items-center gap-6 lg:flex" role="list">
+      {nav.map((item) => (
+        <li>
+          <a
+            href={item.href}
+            class="mono text-[11px] font-medium uppercase tracking-[0.18em] text-ink-soft transition hover:text-accent"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-4 w-4">
-              <path d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </summary>
-          <div class="absolute right-4 top-full mt-2 w-[min(20rem,calc(100vw-2rem))] border border-rule bg-bg-raised shadow-[6px_6px_0_0_var(--color-rule-strong)]">
-            <ul class="flex flex-col" role="list">
-              {nav.map((item) => (
-                <li>
-                  <a href={item.href} class="block border-b border-rule px-4 py-3.5 mono text-[11px] uppercase tracking-[0.18em] text-ink-soft hover:bg-ink/5 hover:text-accent">
-                    {item.label}
-                  </a>
-                </li>
-              ))}
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <div class="flex items-center gap-3">
+      <a href="#contacto" class="btn-force hidden px-4 py-2 sm:inline-flex">
+        Hablemos
+      </a>
+      <details class="lg:hidden" data-menu>
+        <summary
+          class="flex h-9 w-9 cursor-pointer list-none items-center justify-center border border-rule-strong text-ink [&::-webkit-details-marker]:hidden"
+          aria-label="Abrir menú"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-4 w-4">
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </summary>
+        <div class="absolute right-4 top-full mt-2 w-[min(20rem,calc(100vw-2rem))] border border-rule bg-bg-raised shadow-[6px_6px_0_0_var(--color-rule-strong)]">
+          <ul class="flex flex-col" role="list">
+            {nav.map((item) => (
               <li>
-                <a href="#contacto" class="block bg-accent px-4 py-3.5 mono text-[11px] font-semibold uppercase tracking-[0.18em] text-accent-ink">
-                  Hablemos
+                <a href={item.href} class="block border-b border-rule px-4 py-3.5 mono text-[11px] uppercase tracking-[0.18em] text-ink-soft hover:bg-ink/5 hover:text-accent">
+                  {item.label}
                 </a>
               </li>
-            </ul>
-          </div>
-        </details>
-      </div>
-    </nav>
-  </header>
-</div>
+            ))}
+            <li>
+              <a href="#contacto" class="block bg-accent px-4 py-3.5 mono text-[11px] font-semibold uppercase tracking-[0.18em] text-accent-ink">
+                Hablemos
+              </a>
+            </li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </nav>
+</header>
 
 <script is:inline data-menu-script>
   // El menú móvil es un <details>: se cierra solo al tocar un link, al tocar

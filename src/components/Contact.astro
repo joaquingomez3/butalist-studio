@@ -1,18 +1,22 @@
 ---
 import { site } from "../data/site";
 
-const socials = [
-  { key: "linkedin", label: "LINKEDIN", href: site.social.linkedin },
-  { key: "github", label: "GITHUB", href: site.social.github },
-  { key: "twitter", label: "X·TWITTER", href: site.social.twitter },
-  { key: "instagram", label: "INSTAGRAM", href: site.social.instagram },
-];
+/* REDES SOCIALES — desactivadas a propósito.
+   Todavía no tenemos las cuentas creadas, así que la grilla de abajo del mail
+   está comentada. Cuando existan: descomentar este bloque y el bloque marcado
+   [REDES] más abajo, y verificar las URLs en src/data/site.ts. */
+// const socials = [
+//   { key: "linkedin", label: "LINKEDIN", href: site.social.linkedin },
+//   { key: "github", label: "GITHUB", href: site.social.github },
+//   { key: "twitter", label: "X·TWITTER", href: site.social.twitter },
+//   { key: "instagram", label: "INSTAGRAM", href: site.social.instagram },
+// ];
 ---
 
 <section id="contacto" class="border-t border-rule py-16 sm:py-24 md:py-36">
   <div class="container-fx text-center">
     <div class="flex items-center justify-between" data-reveal>
-      <span class="label-accent">§07 / CONTACTO</span>
+      <span class="label-accent">§06 / CONTACTO</span>
       <span class="label hidden sm:inline">RESPONDEMOS EN 24H</span>
     </div>
 
@@ -33,6 +37,9 @@ const socials = [
     </div>
   </div>
 
+  {/* [REDES] Grilla de redes sociales. Descomentar junto con el array
+      `socials` del frontmatter cuando las cuentas estén creadas.
+
   <div class="container-fx mt-20">
     <div class="t-rule grid border-x border-rule sm:grid-cols-2 lg:grid-cols-4" data-reveal>
       {socials.map((s) => (
@@ -49,4 +56,6 @@ const socials = [
       ))}
     </div>
   </div>
+
+  */}
 </section>
