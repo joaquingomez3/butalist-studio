@@ -18,7 +18,7 @@ export const projects: Project[] = [
   {
     id: "alpha",
     index: "01",
-    title: "Proyecto Fixer",
+    title: "App de Servicios para tu hogar",
     tag: "App Mobile / Panel de Administracion",
     type: "SAAS",
     status: "EN DESARROLLO",
@@ -30,7 +30,7 @@ export const projects: Project[] = [
   {
     id: "beta",
     index: "02",
-    title: "Proyecto Radio FM",
+    title: "Radio FM",
     tag: "App Mobile / Panel de Administracion",
     type: "SAAS",
     status: "TERMINADO",
@@ -42,8 +42,8 @@ export const projects: Project[] = [
   {
     id: "gamma",
     index: "03",
-    title: "Proyecto TresMa",
-    tag: "Sistema De Ventas",
+    title: "Sistema De Ventas",
+    tag: "Sistema Web De Ventas",
     type: "A MEDIDA",
     status: "ENTREGADO",
     description:
@@ -54,7 +54,7 @@ export const projects: Project[] = [
   {
     id: "custom-1",
     index: "04",
-    title: "Proyecto POS 2.0",
+    title: "Sistema POS 2.0",
     tag: "Sistema De Ventas",
     type: "A MEDIDA",
     status: "TERMINADO",
