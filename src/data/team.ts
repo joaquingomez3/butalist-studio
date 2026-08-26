@@ -21,10 +21,10 @@ export const team: TeamMember[] = [
     name: "Joaquín Gómez",
     role: "Co-founder & Full-Stack Developer",
     initials: "JG",
-    bio: "Desarrollador full-stack, formación universitaria en informática. Fan de las APIs limpias, la docu clara y los tests que valen la pena. Si hay un problema raro, probablemente lo está depurando.",
+    bio: "Desarrollador full-stack, formación universitaria en informática. Amante de los retos y el aprendizaje constante. Si algo no lo entiendo, lo investigo y lo aprendo.",
     social: {
-      github: "#",
-      linkedin: "#",
+      github: "https://github.com/joaquingomez3",
+      linkedin: "https://www.linkedin.com/in/joaquingomez-dev/",
     },
   },
   {
@@ -33,10 +33,10 @@ export const team: TeamMember[] = [
     name: "Federico González",
     role: "Co-founder & Full-Stack Developer",
     initials: "FG",
-    bio: "Desarrollador full-stack con formación universitaria en informática. Le gusta el código prolijo, los sistemas simples y el café bien cargado. Construye frontend y backend sin dramas.",
+    bio: "Desarrollador full-stack con formación universitaria. Siempre hay algo para aprender, algo para construir o alguna pregunta técnica dando vueltas en mi cabeza. A veces las tres cosas al mismo tiempo.",
     social: {
-      github: "#",
-      linkedin: "#",
+      github: "https://github.com/federicodg",
+      linkedin: "https://www.linkedin.com/in/fededg/",
     },
   },
 ];
