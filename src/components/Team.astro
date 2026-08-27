@@ -35,6 +35,8 @@ const socialIcon = { github: "github", linkedin: "linkedin", twitter: "twitter" 
               {Object.entries(m.social).map(([key, href]) => (
                 <a
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   class="flex h-9 w-9 items-center justify-center border border-rule-strong text-ink-soft transition hover:border-accent hover:text-accent"
                   aria-label={`${m.name} en ${key}`}
                 >

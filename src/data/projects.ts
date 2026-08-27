@@ -56,7 +56,7 @@ export const projects: Project[] = [
     index: "04",
     title: "Sistema POS 2.0",
     tag: "Sistema De Ventas",
-    type: "A MEDIDA",
+    type: "SAAS",
     status: "TERMINADO",
     description:
       "Sistema Offline de gestión de ventas, productos y stock a medida.",
@@ -68,7 +68,7 @@ export const projects: Project[] = [
     index: "05",
     title: "Proyecto Gimnasio",
     tag: "Sistema de Gestion",
-    type: "A MEDIDA",
+    type: "SAAS",
     status: "PROXIMAMENTE",
     description:
       "Sistema de gestión de rutinas, planes y asistencia para gimnasios.",
@@ -80,7 +80,7 @@ export const projects: Project[] = [
     index: "06",
     title: "Proyecto Turnos",
     tag: "Sistema de Gestion de Turnos",
-    type: "A MEDIDA",
+    type: "SAAS",
     status: "PROXIMAMENTE",
     description: "Sistema de gestion de turnos para tu negocio.",
     mockup: "terminal",
