@@ -5,15 +5,19 @@ interface Props {
   title: string;
   desc?: string;
   monoTag?: string;
+  /* rule=false para secciones que ya vienen despues de un borde fuerte
+     (p.ej. la franja invertida de Garantias): ahi la linea propia del header
+     quedaba flotando sola en el medio del padding. */
+  rule?: boolean;
 }
-const { num, label, title, desc, monoTag = "BINARIO DEV LABS" } = Astro.props;
+const { num, label, title, desc, monoTag = "BINARIO DEV LABS", rule = true } = Astro.props;
 ---
 
 <!-- Ojo: este t-rule ES el divisor de la seccion. Las secciones que usan
      SectionHeader NO deben llevar ademas `border-t` propio: quedaban dos
      lineas separadas por todo el padding, y la de arriba flotaba sola. -->
 <div class="container-fx">
-  <div class="t-rule pb-4 pt-6" data-reveal>
+  <div class={`pb-4 ${rule ? "t-rule pt-6" : "pt-0"}`} data-reveal>
     <div class="flex items-baseline justify-between gap-4">
       <span class="label-accent">{num} / {label}</span>
       <span class="label hidden sm:inline">{monoTag}</span>
