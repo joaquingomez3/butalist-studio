@@ -14,7 +14,7 @@ export const site = {
   tagline: "Construimos software a medida. Punto.",
   description:
     "Estudio independiente de desarrollo de software. Software a medida y SaaS. Dos desarrolladores, formación universitaria y código serio.",
-  email: "binariodevlabs@gmail.com",
+  email: "hola@binariodevlabs.com",
   url: "https://binariodevlabs.com",
   foundedYear: 2024,
   status: "DISPO PARA Q4 2026",
