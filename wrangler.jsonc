@@ -1,0 +1,12 @@
+{
+  // Sitio estático de Astro servido con Workers Static Assets.
+  // La presencia de este archivo evita que `wrangler deploy` ejecute su
+  // auto-configuración (`astro add cloudflare`), que rompe el build
+  // porque @astrojs/cloudflare todavía no soporta Astro 7.
+  "name": "butalist-studio",
+  "compatibility_date": "2026-09-08",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+  }
+}
