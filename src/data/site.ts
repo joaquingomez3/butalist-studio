@@ -19,13 +19,10 @@ export const site = {
   foundedYear: 2024,
   status: "DISPO PARA Q4 2026",
   location: "REMOTO / GLOBAL",
-  // TODO(redes): descomentar el bloque de redes en Contact.astro cuando
-  // estas cuentas existan de verdad.
   social: {
-    linkedin: "https://www.linkedin.com/company/binariodevlabs",
-    github: "https://github.com/binariodevlabs",
-    twitter: "https://twitter.com/binariodevlabs",
     instagram: "https://instagram.com/binariodevlabs",
+    whatsapp: "https://wa.me/5492665034652",
+    whatsappLabel: "+54 9 266 503-4652",
   },
   system: {
     build: "v2.0.0-brutal",
