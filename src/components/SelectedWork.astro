@@ -1,11 +1,18 @@
 ---
 import { projects } from "../data/projects";
+import { site } from "../data/site";
 import SectionHeader from "./SectionHeader.astro";
 import TerminalMockup from "./mockups/TerminalMockup.astro";
 import UIMockup from "./mockups/UIMockup.astro";
 import GraphMockup from "./mockups/GraphMockup.astro";
 import CodeMockup from "./mockups/CodeMockup.astro";
 import MobileMockup from "./mockups/MobileMockup.astro";
+
+/* Cada tarjeta abre WhatsApp con un mensaje que ya nombra el sistema. */
+const whatsappHref = (title: string) =>
+  `${site.social.whatsapp}?text=${encodeURIComponent(
+    `Hola, estoy interesado en el sistema "${title}"`,
+  )}`;
 
 const mockups = {
   terminal: TerminalMockup,
@@ -31,7 +38,9 @@ const mockups = {
         const Comp = mockups[p.mockup];
         return (
           <a
-            href={p.href}
+            href={whatsappHref(p.title)}
+            target="_blank"
+            rel="noopener noreferrer"
             class="group flex min-w-0 flex-col overflow-hidden border border-rule bg-bg-raised transition-[transform,box-shadow,border-color] duration-200 hover:-translate-y-1 hover:border-accent hover:shadow-[6px_6px_0_0_var(--color-accent)]"
             data-reveal
           >
@@ -57,9 +66,9 @@ const mockups = {
                 {p.tag}
               </p>
               <p class="mt-4 text-sm leading-relaxed text-ink-soft">{p.description}</p>
-              {/* <span class="mt-5 flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-accent opacity-0 transition-opacity group-hover:opacity-100">
-                Ver caso → 
-              </span> */}
+              <span class="mt-auto flex items-center gap-2 pt-5 font-mono text-[11px] uppercase tracking-widest text-accent opacity-0 transition-opacity group-hover:opacity-100">
+                Consultar por WhatsApp →
+              </span>
             </div>
           </a>
         );
